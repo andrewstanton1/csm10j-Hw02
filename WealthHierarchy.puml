@@ -1,0 +1,78 @@
+@startuml
+annotation java.lang.Override
+class InterfaceDesign.BankAccount{
+double holding
+String name
+BankAccount(String name, double holding)
+getAssetValue()
+toString()
+}
+class InterfaceDesign.Bond{
+String name
+int quantity
+double price
+Bond(String name, int quantity, double price)
+getAssetValue()
+toString()
+}
+class InterfaceDesign.Car{
+String name
+double price
+double financed
+Car(String name, double price, double financed)
+getAssetValue()
+getDebtAmount()
+toString()
+}
+class InterfaceDesign.House{
+String name
+double marketValue
+double mortage
+House(String name, double market, double mortgage)
+getAssetValue()
+getDebtAmount()
+toString()
+}
+class InterfaceDesign.Stock{
+String name
+int quantity
+double price
+Stock(String name, int quantity, double price)
+getAssetValue()
+toString()
+}
+class InterfaceDesign.Wealth{
+List assetList
+List debtList
+Wealth()
+addAsset(Asset debt)
+getNetWorth()
+getTotalAssets()
+getTotalDebts()
+getAssetSummary()
+toString()
+}
+class java.util.ArrayList
+class java.util.List
+interface InterfaceDesign.Asset{
+getAssetValue()
+}
+interface InterfaceDesign.Debt{
+getDebtAmount()
+}
+InterfaceDesign.BankAccount ..> java.lang.Override
+InterfaceDesign.BankAccount --|> InterfaceDesign.Asset
+InterfaceDesign.Bond ..> java.lang.Override
+InterfaceDesign.Bond --|> InterfaceDesign.Asset
+InterfaceDesign.Car ..> java.lang.Override
+InterfaceDesign.Car --|> InterfaceDesign.Asset
+InterfaceDesign.Car --|> InterfaceDesign.Debt
+InterfaceDesign.House ..> java.lang.Override
+InterfaceDesign.House --|> InterfaceDesign.Asset
+InterfaceDesign.House --|> InterfaceDesign.Debt
+InterfaceDesign.Stock ..> java.lang.Override
+InterfaceDesign.Stock --|> InterfaceDesign.Asset
+InterfaceDesign.Wealth ..> java.lang.Override
+InterfaceDesign.Wealth ..> java.util.ArrayList
+InterfaceDesign.Wealth ..> java.util.List
+@enduml

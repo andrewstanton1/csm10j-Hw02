@@ -1,0 +1,73 @@
+@startuml
+abstract class InheritanceDesign.Asset{
+String name
+Asset(String name)
+abstract double getAssetValue()
+}
+abstract class InheritanceDesign.Property{
+double totalValue;
+double totalDebt;
+Property (String name, double totalValue, double totalDebt)
+getDebtAmount()
+getValueAmount()
+}
+abstract class InheritanceDesign.Security{
+double price;
+int quantity;
+Security (String name, double price, int quantity)
+}
+annotation java.lang.Override
+class InheritanceDesign.BankAccount{
+double holding
+BankAccount(String name, double holding)
+getAssetValue()
+toString() 
+}
+class InheritanceDesign.Bond{
+Bond(String name, int quantity, double price){
+getAssetValue()
+toString()
+}  
+class InheritanceDesign.Car{
+Car(String name, double price, double financed){
+getAssetValue()
+toString()
+}
+class InheritanceDesign.House{
+House(String name, double marketValue, double mortgage){
+getAssetValue(){
+toString()
+}
+class InheritanceDesign.Stock{
+Stock(String name, int quantity, double price){
+getAssetValue()
+String toString() 
+}
+class InheritanceDesign.Wealth{
+List<Asset> assetList
+Wealth (Asset asset) 
+addAsset(Asset asset)
+getNetWorth()  
+getTotalAssets()
+getTotalDebts()
+getSummary()
+toString()    
+}
+class java.util.ArrayList
+class java.util.List
+InheritanceDesign.Property --|> InheritanceDesign.Asset
+InheritanceDesign.Security --|> InheritanceDesign.Asset
+InheritanceDesign.BankAccount --|> InheritanceDesign.Asset
+InheritanceDesign.BankAccount ..> java.lang.Override
+InheritanceDesign.Bond --|> InheritanceDesign.Security
+InheritanceDesign.Bond ..> java.lang.Override
+InheritanceDesign.Car --|> InheritanceDesign.Property
+InheritanceDesign.Car ..> java.lang.Override
+InheritanceDesign.House --|> InheritanceDesign.Property
+InheritanceDesign.House ..> java.lang.Override
+InheritanceDesign.Stock --|> InheritanceDesign.Security
+InheritanceDesign.Stock ..> java.lang.Override
+InheritanceDesign.Wealth ..> java.lang.Override
+InheritanceDesign.Wealth ..> java.util.ArrayList
+InheritanceDesign.Wealth ..> java.util.List
+@enduml
